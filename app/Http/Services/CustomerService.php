@@ -7,6 +7,7 @@ use App\Http\DomainModels\Customer\ValueObjects\BirthDate;
 use App\Http\DomainModels\Customer\ValueObjects\Password;
 use App\Http\DomainModels\Customer\ValueObjects\Email;
 use App\Http\DomainModels\Customer\Customer;
+use Exception;
 
 class CustomerService
 {
@@ -29,6 +30,12 @@ class CustomerService
         $password = new Password($password);
         $email = new Email($email);
         $birth_date = new BirthDate($birth_date);
+
+        $existed_customer = $this->customer_repository->getByEmail($email);
+        if ($existed_customer) {
+            throw new Exception("duplicated email");
+        }
+
         $customer = new Customer(null, null, $name, $email, $password, $birth_date);
         $customer->generateUuid();
         $customer->hashPassword();

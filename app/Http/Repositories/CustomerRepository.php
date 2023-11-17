@@ -38,11 +38,14 @@ class CustomerRepository
 
     public function getByEmail(Email $email)
     {
-        $customer = Customer::where('email', $email->getContent())->get();
+        $customer = Customer::where('email', $email->getContent())->first();
         return $this->ormToDomain($customer);
     }
-    private function ormToDomain(Customer $customer)
+    private function ormToDomain(?Customer $customer)
     {
+        if (!$customer) {
+            return null;
+        }
         $email = new Email($customer->email);
         $birth_date = new BirthDate($customer->birth_date);
         $customer_domain = new CustomerDomain($customer->id, $customer->uuid, $customer->name, $email, null, $birth_date);
