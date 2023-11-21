@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Customer;
 
 use Illuminate\Routing\Controller as BaseController;
-use App\Http\Services\CustomerService;
+use App\Http\Customer\CustomerService;
 use Illuminate\Http\Request;
 
 class CustomerController extends BaseController
@@ -48,7 +48,7 @@ class CustomerController extends BaseController
         }
 
         return response([
-            'success' => false,
+            'success' => true,
             'msg' => '',
         ])->header('Content-Type', 'text/json');
     }

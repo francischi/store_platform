@@ -1,19 +1,15 @@
 <?php
 
-namespace App\Http\Repositories;
+namespace App\Http\Customer;
 
-use App\Http\DomainModels\Customer\Customer as CustomerDomain;
-use App\Http\DomainModels\Customer\ValueObjects\Email;
-use App\Http\DomainModels\Customer\ValueObjects\BirthDate;
+use App\Http\Customer\Customer as CustomerDomain;
+use App\Http\Common\ValueObjects\Email;
+use App\Http\Common\ValueObjects\Password;
+use App\Http\Customer\ValueObjects\BirthDate;
 use App\Models\Customer;
 
 class CustomerRepository
 {
-    public function __construct()
-    {
-        return;
-    }
-
     public function save(CustomerDomain $customer_domain)
     {
         $customer = new Customer();
@@ -31,8 +27,6 @@ class CustomerRepository
         $customers = $customers->map(function ($customer) {
             return $this->ormToDomain($customer);
         })->toArray();
-
-
         return $customers;
     }
 

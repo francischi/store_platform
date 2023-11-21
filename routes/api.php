@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CustomerController;
+use App\Http\Customer\CustomerController;
+use App\Http\Merchant\MerchantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/customer', [CustomerController::class, 'create']);
 Route::get('/customers', [CustomerController::class, 'getAll']);
+
+Route::post('/merchant', [MerchantController::class, 'create']);

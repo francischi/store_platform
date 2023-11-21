@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\DomainModels\Customer\Enums;
+namespace App\Http\Customer\Enums;
 
 class Gender
 {
     private $gender;
-    const FEMALE = 0;
-    const MALE = 1;
-    const VALID_GENDER = [
+    public const FEMALE = 0;
+    public const MALE = 1;
+    public const VALID_GENDER = [
         self::FEMALE,
         self::MALE,
     ];
 
     public function __construct($gender) {
         if (in_array($gender, self::VALID_GENDER)) {
-            throw new Exception("invalid gender");
+            throw new \Exception("invalid gender");
         }
         $this->gender = $gender;
     }

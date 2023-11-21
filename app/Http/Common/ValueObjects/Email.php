@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\DomainModels\Customer\ValueObjects;
+namespace App\Http\Common\ValueObjects;
 
 use TheSeer\Tokenizer\Exception;
 

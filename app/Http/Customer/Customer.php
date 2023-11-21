@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\DomainModels\Customer;
+namespace App\Http\Customer;
 
-use App\Http\DomainModels\Customer\ValueObjects\BirthDate;
-use App\Http\DomainModels\Customer\ValueObjects\Password;
-use App\Http\DomainModels\Customer\ValueObjects\Email;
+use App\Http\Customer\ValueObjects\BirthDate;
+use App\Http\Common\ValueObjects\Password;
+use App\Http\Common\ValueObjects\Email;
 use Illuminate\Support\Str;
 
-class Customer
+class Customer implements \JsonSerializable
 {
     private $id = null;
     private $uuid = null;
     private $name;
+    private Email $email;
     private ?Password $password;
     private BirthDate $birth_date;
     public function __construct(?int $id, ?string $uuid, string $name, Email $email, ?Password $password, BirthDate $birth_date)
@@ -29,6 +30,9 @@ class Customer
     }
     public function generateUuid()
     {
+        if ($this->uuid) {
+            return;
+        }
         $this->uuid = Str::uuid()->toString();
     }
     public function getUuid()
@@ -65,7 +69,7 @@ class Customer
         return $this->birth_date->toAge();
     }
 
-    public function serialize()
+    public function jsonSerialize()
     {
         return[
             "id" => $this->getId(),
