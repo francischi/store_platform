@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Customer;
+namespace App\Http\CustomerManagement\Customer;
 
-use App\Http\Customer\ValueObjects\BirthDate;
-use App\Http\Common\ValueObjects\Password;
-use App\Http\Common\ValueObjects\Email;
+use App\Http\CustomerManagement\Customer\ValueObjects\BirthDate;
+use App\Http\CustomerManagement\Customer\ValueObjects\Password;
+use App\Http\CustomerManagement\Customer\ValueObjects\Email;
 use Illuminate\Support\Str;
 
 class Customer implements \JsonSerializable

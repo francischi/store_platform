@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Customer;
+namespace App\Http\CustomerManagement\Customer;
 
 use Illuminate\Routing\Controller as BaseController;
-use App\Http\Customer\CustomerService;
+use App\Http\CustomerManagement\Customer\CustomerService;
 use Illuminate\Http\Request;
 
 class CustomerController extends BaseController

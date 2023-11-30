@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Customer;
+namespace App\Http\CustomerManagement\Customer;
 
-use App\Http\Customer\CustomerRepository;
-use App\Http\Customer\ValueObjects\BirthDate;
-use App\Http\Common\ValueObjects\Password;
-use App\Http\Common\ValueObjects\Email;
-use App\Http\Customer\Customer;
+use App\Http\CustomerManagement\Customer\CustomerRepository;
+use App\Http\CustomerManagement\Customer\ValueObjects\BirthDate;
+use App\Http\CustomerManagement\Customer\ValueObjects\Password;
+use App\Http\CustomerManagement\Customer\ValueObjects\Email;
+use App\Http\CustomerManagement\Customer\Customer;
 use Exception;
 
 class CustomerService

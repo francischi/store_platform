@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Merchant;
+namespace App\Http\MerchantManagement\Merchant;
 
-use App\Http\Common\ValueObjects\Password;
-use App\Http\Merchant\ValueObjects\Price;
-use App\Http\Common\ValueObjects\Email;
-use App\Http\Merchant\Entities\Commodity;
+use App\Http\MerchantManagement\Merchant\ValueObjects\Password;
+use App\Http\MerchantManagement\Merchant\ValueObjects\Price;
+use App\Http\MerchantManagement\Merchant\ValueObjects\Email;
+use App\Http\MerchantManagement\Merchant\Entities\Commodity;
 use Illuminate\Support\Str;
 
 class Merchant implements \JsonSerializable

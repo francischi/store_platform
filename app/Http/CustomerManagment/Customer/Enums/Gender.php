@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Customer\Enums;
+namespace App\Http\CustomerManagement\Customer\Enums;
 
 class Gender
 {

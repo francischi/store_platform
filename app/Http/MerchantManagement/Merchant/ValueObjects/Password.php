@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Common\ValueObjects;
+namespace App\Http\MerchantManagement\Merchant\ValueObjects;
 
 use TheSeer\Tokenizer\Exception;
 

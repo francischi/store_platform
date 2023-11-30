@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Merchant;
+namespace App\Http\MerchantManagement\Merchant;
 
-use App\Http\Merchant\MerchantRepository;
-use App\Http\Common\ValueObjects\Password;
-use App\Http\Common\ValueObjects\Email;
-use App\Http\Merchant\Merchant;
+use App\Http\MerchantManagement\Merchant\MerchantRepository;
+use App\Http\MerchantManagement\Merchant\ValueObjects\Password;
+use App\Http\MerchantManagement\Merchant\ValueObjects\Email;
+use App\Http\MerchantManagement\Merchant\Merchant;
 
 class MerchantService
 {
