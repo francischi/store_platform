@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Merchant\Entities;
+namespace App\Http\CommodityManagement\Domain\Merchant\Entities;
 
-use App\Http\Merchant\ValueObjects\Price;
+use App\Http\CommodityManagement\Domain\Merchant\ValueObjects\Price;
 use Illuminate\Support\Str;
 use App\Http\Merchant\Enums\EnableStatus;
 

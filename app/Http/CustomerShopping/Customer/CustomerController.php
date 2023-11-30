@@ -14,7 +14,7 @@ class CustomerController extends BaseController
         $this->customer_service = $customer_service;
     }
 
-    public function getAll()
+    public function getCart()
     {
         try {
             $customers = $this->customer_service->getAll();

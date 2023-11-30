@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\CustomerManagement\Customer\CustomerController;
-use App\Http\MerchantManagement\Merchant\MerchantController;
+use App\Http\CustomerManagement\Controllers\CustomerController;
+use App\Http\MerchantManagement\Controllers\MerchantController;
 
 /*
 |--------------------------------------------------------------------------

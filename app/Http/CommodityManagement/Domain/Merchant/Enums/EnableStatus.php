@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Merchant\Enums;
+namespace App\Http\CommodityManagement\Domain\Merchant\Enums;
 
 class EnableStatus
 {

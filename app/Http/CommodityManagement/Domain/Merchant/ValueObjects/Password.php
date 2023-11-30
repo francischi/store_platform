@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\CustomerManagement\Customer\ValueObjects;
+namespace App\Http\CommodityManagement\Domain\Merchant\ValueObjects;
 
 use TheSeer\Tokenizer\Exception;
 

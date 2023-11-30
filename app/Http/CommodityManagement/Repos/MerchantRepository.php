@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\MerchantManagement\Merchant;
+namespace App\Http\CommodityManagement\Repos;
 
-use App\Http\MerchantManagement\Merchant\Merchant as MerchantDomain;
-use App\Http\MerchantManagement\Merchant\Entities\Commodity as CommodityDomain;
-use App\Http\MerchantManagement\Merchant\ValueObjects\Email;
+use App\Http\CommodityManagement\Domain\Merchant\Merchant as MerchantDomain;
+use App\Http\CommodityManagement\Domain\Merchant\Entities\Commodity as CommodityDomain;
+use App\Http\CommodityManagement\Domain\Merchant\ValueObjects\Email;
 use App\Models\Merchant;
 use App\Models\Commodity;
 

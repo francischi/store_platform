@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\MerchantManagement\Merchant;
+namespace App\Http\CommodityManagement\Domain\Merchant;
 
-use App\Http\MerchantManagement\Merchant\ValueObjects\Password;
-use App\Http\MerchantManagement\Merchant\ValueObjects\Price;
-use App\Http\MerchantManagement\Merchant\ValueObjects\Email;
-use App\Http\MerchantManagement\Merchant\Entities\Commodity;
+use App\Http\CommodityManagement\Domain\Merchant\ValueObjects\Password;
+use App\Http\CommodityManagement\Domain\Merchant\ValueObjects\Price;
+use App\Http\CommodityManagement\Domain\Merchant\ValueObjects\Email;
+use App\Http\CommodityManagement\Domain\Merchant\Entities\Commodity;
 use Illuminate\Support\Str;
 
 class Merchant implements \JsonSerializable
@@ -14,9 +14,9 @@ class Merchant implements \JsonSerializable
     private $uuid = null;
     private $name;
     private Email $email;
-    private ?Password $password;
+    private Password $password;
     private array $commodities;
-    public function __construct(?int $id, ?string $uuid, string $name, Email $email, ?Password $password)
+    public function __construct(?int $id, ?string $uuid, string $name, Email $email, Password $password)
     {
         $this->id = $id;
         $this->uuid = $uuid;

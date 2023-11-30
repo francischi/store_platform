@@ -13,27 +13,16 @@ class Customer implements \JsonSerializable
     private $uuid = null;
     private $name;
     private Email $email;
-    private ?Password $password;
-    private BirthDate $birth_date;
-    public function __construct(?int $id, ?string $uuid, string $name, Email $email, ?Password $password, BirthDate $birth_date)
+    public function __construct(int $id, string $uuid, string $name, Email $email)
     {
         $this->id = $id;
         $this->uuid = $uuid;
         $this->name = $name;
         $this->email = $email;
-        $this->password = $password;
-        $this->birth_date = $birth_date;
     }
     public function getId()
     {
         return $this->id;
-    }
-    public function generateUuid()
-    {
-        if ($this->uuid) {
-            return;
-        }
-        $this->uuid = Str::uuid()->toString();
     }
     public function getUuid()
     {
@@ -50,23 +39,9 @@ class Customer implements \JsonSerializable
         return $this->email->getContent();
     }
 
-    public function getPassword()
+    public function setCart()
     {
-        return $this->password ? $this->password->getContent() : null;
-    }
-
-    public function hashPassword()
-    {
-        $this->password->hash();
-    }
-
-    public function getBirthDate()
-    {
-        return $this->birth_date->getContent();
-    }
-    public function getAge()
-    {
-        return $this->birth_date->toAge();
+        
     }
 
     public function jsonSerialize()
@@ -76,7 +51,6 @@ class Customer implements \JsonSerializable
             "uuid" => $this->getUuid(),
             "name" => $this->getName(),
             "email" => $this->getEmail(),
-            "birth_date" => $this->getBirthDate(),
         ];
     }
 }
