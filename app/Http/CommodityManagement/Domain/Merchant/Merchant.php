@@ -13,27 +13,16 @@ class Merchant implements \JsonSerializable
     private $id = null;
     private $uuid = null;
     private $name;
-    private Email $email;
-    private Password $password;
     private array $commodities;
-    public function __construct(?int $id, ?string $uuid, string $name, Email $email, Password $password)
+    public function __construct(?int $id, ?string $uuid, string $name)
     {
         $this->id = $id;
         $this->uuid = $uuid;
         $this->name = $name;
-        $this->email = $email;
-        $this->password = $password;
     }
     public function getId()
     {
         return $this->id;
-    }
-    public function generateUuid()
-    {
-        if ($this->uuid) {
-            return;
-        }
-        $this->uuid = Str::uuid()->toString();
     }
     public function getUuid()
     {
@@ -42,18 +31,6 @@ class Merchant implements \JsonSerializable
     public function getName()
     {
         return $this->name;
-    }
-    public function getEmail()
-    {
-        return $this->email->getContent();
-    }
-    public function getPassword()
-    {
-        return $this->password ? $this->password->getContent() : null;
-    }
-    public function hashPassword()
-    {
-        $this->password->hash();
     }
     public function setCommodities(array $commodities)
     {

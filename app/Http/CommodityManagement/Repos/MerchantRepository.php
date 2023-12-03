@@ -10,16 +10,7 @@ use App\Models\Commodity;
 
 class MerchantRepository
 {
-    public function save(MerchantDomain $merchant_domain)
-    {
-        $merchant = new Merchant();
-        $merchant->email = $merchant_domain->getEmail();
-        $merchant->uuid = $merchant_domain->getUuid();
-        $merchant->name = $merchant_domain->getName();
-        $merchant->password = $merchant_domain->getPassword();
-        $merchant->save();
-    }
-    public function saveCommodity(CommodityDomain $commodity_domain)
+    public function addCommodity(CommodityDomain $commodity_domain)
     {
         $commodity = new Commodity();
         $commodity->uuid = $commodity_domain->getUuid();
@@ -42,7 +33,7 @@ class MerchantRepository
             return null;
         }
         $email = new Email($merchant->email);
-        $merchant_domain = new MerchantDomain($merchant->id, $merchant->uuid, $merchant->name, $email, null);
+        $merchant_domain = new MerchantDomain($merchant->id, $merchant->uuid, $merchant->name, $email);
         return $merchant_domain;
     }
 }

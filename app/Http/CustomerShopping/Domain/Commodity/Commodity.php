@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Merchant\Entities;
+namespace App\Http\CustomerShopping\Domain\Commodity;
 
-use App\Http\Merchant\ValueObjects\Price;
+use App\Http\CustomerShopping\Domain\Commodity\ValueObjects\Price;
 use Illuminate\Support\Str;
 use App\Http\Merchant\Enums\EnableStatus;
 
@@ -42,10 +42,14 @@ class Commodity
     }
     public function getStock()
     {
-        return $this->price->getPromotionPrice();
+        return $this->stock;
     }
     public function getEnableStatus()
     {
         return $this->enable_status;
+    }
+    public function isEnable()
+    {
+        return $this->enable_status == EnableStatus::ENABLE;
     }
 }

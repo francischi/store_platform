@@ -31,6 +31,23 @@ class CustomerController extends BaseController
         ])->header('Content-Type', 'text/json');
     }
 
+    public function addCartItem()
+    {
+        try {
+            $this->customer_service->addCartItem();
+        } catch (\Exception $e) {
+            return response([
+                'success' => false,
+                'msg' => $e->getMessage(),
+            ])->header('Content-Type', 'text/json');
+        }
+        return response([
+            'success' => true,
+            'msg' => '',
+            'result' =>  $customers,
+        ])->header('Content-Type', 'text/json');
+    }
+
     public function create(Request $request)
     {
         $json = $request->json()->all();

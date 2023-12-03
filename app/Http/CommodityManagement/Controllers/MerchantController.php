@@ -14,28 +14,4 @@ class MerchantController extends BaseController
     {
         $this->merchant_service = $merchant_service;
     }
-    public function create(Request $request)
-    {
-        Telegram::sendMessage([
-            'chat_id' => config('telegram-chat-id'),
-            'text' => 'Hello, this is a test message!',
-        ]);
-        $json = $request->json()->all();
-        $name = $json['name'] ?? null;
-        $email = $json['email'] ?? null;
-        $password = $json['password'] ?? null;
-        try {
-            $this->merchant_service->create($name, $email, $password);
-        } catch (\Exception $e) {
-            return response([
-                'success' => false,
-                'msg' => $e->getMessage(),
-            ])->header('Content-Type', 'text/json');
-        }
-
-        return response([
-            'success' => true,
-            'msg' => '',
-        ])->header('Content-Type', 'text/json');
-    }
 }

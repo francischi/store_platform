@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\MerchantManagement\Services;
+namespace App\Http\CommodityManagement\Services;
 
-use App\Http\MerchantManagement\Repos\MerchantRepository;
-use App\Http\MerchantManagement\Domain\ValueObjects\Password;
-use App\Http\MerchantManagement\Domain\ValueObjects\Email;
-use App\Http\MerchantManagement\Domain\Merchant;
+use App\Http\CommodityManagement\Repos\MerchantRepository;
+use App\Http\CommodityManagement\Domain\Merchant\ValueObjects\Password;
+use App\Http\CommodityManagement\Domain\Merchant\ValueObjects\Email;
+use App\Http\CommodityManagement\Domain\Merchant\Merchant;
 
 class MerchantService
 {
@@ -13,23 +13,5 @@ class MerchantService
     public function __construct(MerchantRepository $merchant_repository)
     {
         $this->merchant_repository = $merchant_repository;
-    }
-    public function create(string $name, string $email, string $password)
-    {
-        $password_vo = new Password();
-        $password_vo->setContent($password);
-
-        $email_vo = new Email($email);
-
-        $existed_merchant = $this->merchant_repository->getByEmail($email_vo);
-        if ($existed_merchant) {
-            throw new \Exception("duplicated email");
-        }
-
-        $merchant = new Merchant(null, null, $name, $email_vo, $password_vo);
-        $merchant->generateUuid();
-        $merchant->hashPassword();
-
-        $this->merchant_repository->save($merchant);
     }
 }
